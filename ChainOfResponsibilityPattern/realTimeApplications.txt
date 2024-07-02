@@ -1,0 +1,3 @@
+1. ATM Machine
+2. Vending Machine
+3. Logging system

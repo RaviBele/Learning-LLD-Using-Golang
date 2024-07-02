@@ -1,0 +1,21 @@
+Real World Use Cases
+
+Here are some of the real world examples where Observer pattern is highly used :
+
+    Notify Me : When the user(Observer) subscribes for some notification from some App(Subject).
+
+    Twitter Follow, Unfollow and Post Tweet feature : When the user(Observer) follows/unfollows and to whom it follows/unfollows(Subject).
+
+    Facebook News Feed : When a user(Subject) has posted or commented or liked some thing its starts showing in the Facebook news feed of its friends(Observer)
+
+    Cricket Score Updater : When the cricket score is changed multiple apps(observer) get notified by the Application(Subject).
+
+    Youtube Subscription : When a user(Observer) subscribes to a Youtube channel(Subject) all its subscribers get notified of any new post.
+
+    Group Chat Application : Group(Subject) and its members(Observer), when some message is added to group its members instantly get updated.
+
+    Weather Forecasting
+
+    Stock Notification
+
+    Android Software update Notification / Mobile App Notifications
