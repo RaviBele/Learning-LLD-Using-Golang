@@ -120,29 +120,51 @@ To use the abstract factory, we first create instances of the concrete factories
 
 
 ```
+package main
+
+import "fmt"
+
 func main() {
-    nikeFactory := &Nike{}
-    adidasFactory := &Adidas{}
+	adidasFactory := GetSportsFactory("adidas")
+	nikeFactory := GetSportsFactory("nike")
 
-    nikeShoe := nikeFactory.MakeShoe()
-    nikeShirt := nikeFactory.MakeShirt()
+	adidasShoes := adidasFactory.makeShoes()
+	nikeShoes := nikeFactory.makeShoes()
 
-    adidasShoe := adidasFactory.MakeShoe()
-    adidasShirt := adidasFactory.MakeShirt()
+	adidasShirts := adidasFactory.makeShirts()
+	nikeShirts := nikeFactory.makeShirts()
 
-    fmt.Printf("Nike Shoe: %+v\n", nikeShoe)
-    fmt.Printf("Nike Shirt: %+v\n", nikeShirt)
-    fmt.Printf("Adidas Shoe: %+v\n", adidasShoe)
-    fmt.Printf("Adidas Shirt: %+v\n", adidasShirt)
+	printShoeDetails(adidasShoes)
+	printShoeDetails(nikeShoes)
+	printShirtDetails(adidasShirts)
+	printShirtDetails(nikeShirts)
+}
+
+func printShoeDetails(s IShoesFactory) {
+	fmt.Printf("Logo: %s", s.getLogo())
+	fmt.Println()
+	fmt.Printf("Size: %d", s.getSize())
+	fmt.Println()
+}
+
+func printShirtDetails(s IShirtsFactory) {
+	fmt.Printf("Logo: %s", s.getLogo())
+	fmt.Println()
+	fmt.Printf("Size: %d", s.getSize())
+	fmt.Println()
 }
 ```
 
 This code produces:
 ```
-Nike Shoe: &{Logo:Nike Size:14}
-Nike Shirt: &{Logo:Nike Size:L}
-Adidas Shoe: &{Logo:Adidas Size:14}
-Adidas Shirt: &{Logo:Adidas Size:L}
+Logo: Adidas
+Size: 18
+Logo: Nike
+Size: 20
+Logo: Adidas
+Size: 40
+Logo: Nike
+Size: 50
 ```
 
 Conclusion
