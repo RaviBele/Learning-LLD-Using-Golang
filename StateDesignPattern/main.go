@@ -23,31 +23,28 @@ func main() {
 
 	response, err := vendingMachine.InsertCoin(5)
 	if err != nil {
-		fmt.Printf("Error selecting product %s: %s\n", product1.GetName(), err.Error())
+		fmt.Printf("Error Inserting coin %s: %s\n", product1.GetName(), err.Error())
 	}
 	fmt.Println(response)
 
 	response, err = vendingMachine.InsertCoin(5)
 	if err != nil {
-		fmt.Printf("Error selecting product %s: %s\n", product1.GetName(), err.Error())
+		fmt.Printf("Error Inserting coin %s: %s\n", product1.GetName(), err.Error())
 	}
 	fmt.Println(response)
 
 	response, err = vendingMachine.InsertCoin(5)
 	if err != nil {
-		fmt.Printf("Error selecting product %s: %s\n", product1.GetName(), err.Error())
+		fmt.Printf("Error Inserting coin %s: %s\n", product1.GetName(), err.Error())
 	}
 	fmt.Println(response)
 
 	response, err = vendingMachine.InsertCoin(5)
 	if err != nil {
-		fmt.Printf("Error selecting product %s: %s\n", product1.GetName(), err.Error())
+		fmt.Printf("Error Inserting coin %s: %s\n", product1.GetName(), err.Error())
 	}
 	fmt.Println(response)
-	// response, err = vendingMachine.CancelButton()
-	// if err != nil {
-	// 	fmt.Printf("Error selecting product %s: %s\n", product3.GetName(), err.Error())
-	// }
+	// response, _ = vendingMachine.CancelButton()
 	// fmt.Println(response)
 	response, err = vendingMachine.SelectProduct(product1.GetCode())
 	if err != nil {
@@ -56,7 +53,7 @@ func main() {
 	fmt.Println(response)
 	response, err = vendingMachine.DispenseSelectedProduct()
 	if err != nil {
-		fmt.Printf("Error selecting product %s: %s\n", product1.GetName(), err.Error())
+		fmt.Printf("Error dispensing product %s: %s\n", product1.GetName(), err.Error())
 	}
 	fmt.Println(response)
 }
