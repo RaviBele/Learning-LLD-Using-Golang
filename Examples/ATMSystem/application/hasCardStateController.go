@@ -14,9 +14,9 @@ func (d *HasCard) InsertCard(machine *ATM, card *models.Card) (string, error) {
 }
 
 func (d *HasCard) EnterPin(machine *ATM, pin string) (string, error) {
-	resp, err := machine.VerifyPin(pin)
+	resp, err := machine.verifyPin(pin)
 	if err == nil {
-		machine.UpdateState(&SelectOptions{})
+		machine.updateState(&SelectOptions{})
 	}
 	return resp, err
 }
@@ -30,9 +30,9 @@ func (d *HasCard) WithdrawCash(machine *ATM, amount float64) (string, error) {
 }
 
 func (d *HasCard) Cancel(machine *ATM) (string, error) {
-	resp, err := machine.ReturnCard()
+	resp, err := machine.returnCard()
 	if err == nil {
-		machine.UpdateState(&IDLE{})
+		machine.updateState(&IDLE{})
 	}
 	return resp, err
 }

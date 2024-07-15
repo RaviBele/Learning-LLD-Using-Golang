@@ -23,7 +23,7 @@ func NewATM() *ATM {
 	}
 }
 
-func (m *ATM) UpdateState(state State) {
+func (m *ATM) updateState(state State) {
 	m.currentState = state
 }
 
@@ -48,12 +48,12 @@ func (m *ATM) Cancel() (string, error) {
 	return m.currentState.Cancel(m)
 }
 
-func (m *ATM) AcceptCard(card *models.Card) (string, error) {
+func (m *ATM) acceptCard(card *models.Card) (string, error) {
 	m.currentCard = card
 	return "Card accepted, Insert your PIN", nil
 }
 
-func (m *ATM) VerifyPin(pin string) (string, error) {
+func (m *ATM) verifyPin(pin string) (string, error) {
 	if m.pinRetryCount <= 0 {
 		return "", errors.New("you reached the limit for your PIN")
 	}
@@ -65,17 +65,17 @@ func (m *ATM) VerifyPin(pin string) (string, error) {
 	return "", errors.New("invalid PIN, try again.")
 }
 
-func (m *ATM) ReturnCard() (string, error) {
+func (m *ATM) returnCard() (string, error) {
 	m.currentCard = nil
 	m.pinRetryCount = 3
 	return "Please collect your card", nil
 }
 
-func (m *ATM) GetBalance() (string, error) {
+func (m *ATM) getBalance() (string, error) {
 	return fmt.Sprintf("%f", m.currentCard.GetAccount().GetBalance()), nil
 }
 
-func (m *ATM) WithdrawRequestCash(amount float64) (string, error) {
+func (m *ATM) withdrawRequestCash(amount float64) (string, error) {
 	currentBalance := m.currentCard.GetAccount().GetBalance()
 
 	if currentBalance < amount {

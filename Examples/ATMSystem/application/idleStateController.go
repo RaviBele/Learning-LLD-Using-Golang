@@ -10,9 +10,9 @@ type IDLE struct {
 }
 
 func (d *IDLE) InsertCard(machine *ATM, card *models.Card) (string, error) {
-	resp, err := machine.AcceptCard(card)
+	resp, err := machine.acceptCard(card)
 	if err == nil {
-		machine.UpdateState(&HasCard{})
+		machine.updateState(&HasCard{})
 	}
 
 	return resp, err

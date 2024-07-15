@@ -20,25 +20,25 @@ func (d *SelectOptions) EnterPin(machine *ATM, pin string) (string, error) {
 }
 
 func (d *SelectOptions) ViewBalance(machine *ATM) (string, error) {
-	return machine.GetBalance()
+	return machine.getBalance()
 }
 
 func (d *SelectOptions) WithdrawCash(machine *ATM, amount float64) (string, error) {
-	resp, err := machine.WithdrawRequestCash(amount)
+	resp, err := machine.withdrawRequestCash(amount)
 	if err == nil {
-		machine.UpdateState(&DispenseMoney{})
+		machine.updateState(&DispenseMoney{})
 		fmt.Println("Dispensing cash")
 		time.Sleep(time.Second * 5)
 		fmt.Println("Cash dispensed")
-		machine.UpdateState(&SelectOptions{})
+		machine.updateState(&SelectOptions{})
 	}
 	return resp, err
 }
 
 func (d *SelectOptions) Cancel(machine *ATM) (string, error) {
-	resp, err := machine.ReturnCard()
+	resp, err := machine.returnCard()
 	if err == nil {
-		machine.UpdateState(&IDLE{})
+		machine.updateState(&IDLE{})
 	}
 	return resp, err
 }

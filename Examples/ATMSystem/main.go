@@ -10,7 +10,7 @@ func main() {
 	atm := application.NewATM()
 
 	user := models.NewUser("Ravi")
-	account := models.NewAccount(user.GetName(), 100000)
+	account := models.NewAccount(user.GetName(), 1000)
 	card := models.NewCard(account)
 	user.SetCard(card)
 	user.SetAccount(account)
@@ -50,4 +50,17 @@ func main() {
 	}
 	fmt.Println(resp, "\n")
 
+	fmt.Println("Canceling...\n")
+	resp, err = atm.Cancel()
+	if err != nil {
+		fmt.Println("Failed to cancel: ", err.Error())
+	}
+	fmt.Println(resp, "\n")
+
+	fmt.Println("Selected view balance\n")
+	resp, err = atm.ViewBalance()
+	if err != nil {
+		fmt.Println("Failed to account Balance: ", err.Error())
+	}
+	fmt.Println(resp, "\n")
 }
