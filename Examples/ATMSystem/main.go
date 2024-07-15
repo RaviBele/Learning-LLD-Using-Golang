@@ -10,7 +10,7 @@ func main() {
 	atm := application.NewATM()
 
 	user := models.NewUser("Ravi")
-	account := models.NewAccount(user.GetName(), 1000)
+	account := models.NewAccount(user.GetName(), 9000)
 	card := models.NewCard(account)
 	user.SetCard(card)
 	user.SetAccount(account)
@@ -30,7 +30,7 @@ func main() {
 	fmt.Println("Selected view balance\n")
 	resp, err = atm.ViewBalance()
 	if err != nil {
-		fmt.Println("Failed to account Balance: ", err.Error())
+		fmt.Println("Failed to get account Balance: ", err.Error())
 	}
 	fmt.Println(resp, "\n")
 
@@ -46,7 +46,7 @@ func main() {
 	fmt.Println("Selected view balance\n")
 	resp, err = atm.ViewBalance()
 	if err != nil {
-		fmt.Println("Failed to account Balance: ", err.Error())
+		fmt.Println("Failed to get account Balance: ", err.Error())
 	}
 	fmt.Println(resp, "\n")
 
@@ -60,7 +60,7 @@ func main() {
 	fmt.Println("Selected view balance\n")
 	resp, err = atm.ViewBalance()
 	if err != nil {
-		fmt.Println("Failed to account Balance: ", err.Error())
+		fmt.Println("Failed to get account Balance: ", err.Error())
 	}
 	fmt.Println(resp, "\n")
 }
