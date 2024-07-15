@@ -21,7 +21,7 @@ func main() {
 		},
 	}
 
-	response, err := vendingMachine.InsertCoin(5)
+	response, err := vendingMachine.InsertCoin(4)
 	if err != nil {
 		fmt.Printf("Error Inserting coin %s: %s\n", product1.GetName(), err.Error())
 	}

@@ -33,6 +33,9 @@ func (v *VendingMachine) CancelButton() (string, error) {
 }
 
 func (v *VendingMachine) AddCoin(coin Coin) (string, error) {
+	if coin != ONE && coin != TWO && coin != FIVE && coin != TEN {
+		return "", fmt.Errorf("invalid coin: %v", coin)
+	}
 	v.currentMoney += int(coin)
 	return fmt.Sprintf("Coin %d inserted", coin), nil
 }
